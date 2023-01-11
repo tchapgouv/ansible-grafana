@@ -13,9 +13,9 @@ platforms:
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: xenial
+  - name: focal
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:ubuntu-16.04
+    image: geerlingguy/docker-ubuntu2004-ansible:latest
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
     volumes:
@@ -29,9 +29,10 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: buster
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:debian-10
+    image: geerlingguy/docker-debian10-ansible:latest
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
+    override_command: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: centos7
@@ -43,18 +44,20 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: centos8
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:centos-8
+    image: geerlingguy/docker-centos8-ansible:latest
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
+    override_command: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - python3
   - name: fedora
     pre_build_image: true
-    image: quay.io/paulfantom/molecule-systemd:fedora-30
+    image: mpaivabarbosa/molecule-systemd-fedora:32
     docker_host: "${DOCKER_HOST:-unix://var/run/docker.sock}"
     privileged: true
+    override_command: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
