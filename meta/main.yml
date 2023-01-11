@@ -5,6 +5,8 @@ galaxy_info:
   license: MIT
   company: none
   min_ansible_version: 2.7
+  role_name: grafana
+  namespace: cloudalchemy
   platforms:
     - name: Ubuntu
       versions:
